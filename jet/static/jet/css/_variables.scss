@@ -8,15 +8,15 @@
  */
 
 $background-color: #ecf2f6 !default;
-$text-color: #6f7e95 !default;
+$text-color: #4c5768 !default;
 $dim-text-color: #d0dbe6 !default;
 $error-text-color: #c14747 !default;
 
-$link-color: #47bac1 !default;
-$hover-link-color: #639af5 !default;
+$link-color: #13858c !default;
+$hover-link-color: #285c65 !default;
 
 $font: Arial, sans-serif !default;
-$font-size: 14px !default;
+$font-size: 12px !default;
 
 $transitions-duration: 0.3s !default;
 $fast-transitions-duration: 0.1s !default;
@@ -129,11 +129,11 @@ $background-button-text-color: #6f7e95 !default;
 $input-height: 32px !default;
 $input-background-color: #fff !default;
 $input-contrast-background-color: #d0dbe6 !default;
-$input-border-color: #ecf2f6 !default;
+$input-border-color: #c2c7cb !default;
 $input-hover-background-color: #639af5 !default;
 $input-icon-color: #47bac1 !default;
-$input-text-color: #6f7e95 !default;
-$input-contrast-text-color: #6f7e95 !default;
+$input-text-color: #4c5768 !default;
+$input-contrast-text-color: #4c5768 !default;
 $input-hover-text-color: #fff !default;
 $input-selected-text-color: #47bac1 !default;
 $input-disabled-text-color: #d0dbe6 !default;
@@ -142,7 +142,7 @@ $input-shadow-color: transparentize(#47bac1, 0.25) !default;
 
 $background-input-background-color: #fff !default;
 $background-input-border-color: #fff !default;
-$background-input-text-color: #6f7e95 !default;
+$background-input-text-color: #4c5768 !default;
 
 /*
  * Messages
