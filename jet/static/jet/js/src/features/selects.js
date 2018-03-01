@@ -189,9 +189,16 @@ Select2.prototype = {
             };
         }
 
-        $select.on('change', function(e) {
-            jet.jQuery($select.get(0)).trigger(e);
-        });
+        var changehandler = null;
+        changehandler = function(e) {
+            if (changehandler)
+                $select.off('change', changehandler);
+            $($select.get(0)).trigger(e);
+            $select.on('change', changehandler);
+            if (django && django.jQuery && django.jQuery != $)
+                django.jQuery($select.get(0)).trigger(e);
+        }
+        $select.on('change', changehandler);
 
         $select.select2(settings);
     },
