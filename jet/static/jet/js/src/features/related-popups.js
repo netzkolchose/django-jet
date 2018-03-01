@@ -5,6 +5,11 @@ var RelatedPopups = function() {
     this.windowStorage = new WindowStorage('relatedWindows');
 };
 
+window.popup_loaded = function() {
+    var event = $.Event('jet:add-another-related');
+    $(document).trigger(event);
+};
+
 RelatedPopups.prototype = {
     updateLinks: function($select) {
         $select.find('~ .change-related, ~ .delete-related, ~ .add-another').each(function() {
@@ -103,16 +108,26 @@ RelatedPopups.prototype = {
         var $container = $document.find('.related-popup-container');
         var $loading = $container.find('.loading-indicator');
         var $body = $document.find('body');
+
         var $popup = $('<div>')
             .addClass('related-popup')
             .data('input', $input);
+
+        var once = false;
+        var load_handler = function() {
+            if (once) return;
+            once = true;
+            $popup.add($document.find('.related-popup-back')).fadeIn(200, 'swing', function() {
+                $loading.hide();
+                once = false;
+            });
+        };
+
         var $iframe = $('<iframe>')
             .attr('src', href)
-            .on('load', function() {
-                $popup.add($document.find('.related-popup-back')).fadeIn(200, 'swing', function() {
-                    $loading.hide();
-                });
-            });
+            .on('load', load_handler);
+
+        $(document).on('jet:add-another-related', load_handler);
 
         $popup.append($iframe);
         $loading.show();
